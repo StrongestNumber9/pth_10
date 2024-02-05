@@ -5,7 +5,7 @@
   <packaging>jar</packaging>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>pth_10</artifactId>
-  <version>${git.commit.id.describe}</version>
+  <version>${teragrep.pth_10.version}</version>
   <name>pth_10</name>
   <description>Data Processing Language (DPL) translator for Apache Spark</description>
   <url>https://teragrep.com</url>
@@ -25,6 +25,7 @@
     <teragrep.dpf_02.version>2.5.2</teragrep.dpf_02.version>
     <teragrep.dpf_03.version>1.1.2</teragrep.dpf_03.version>
     <teragrep.jpr_01.version>3.0.1</teragrep.jpr_01.version>
+    <teragrep.pth_10.version>0.0.1-SNAPSHOT</teragrep.pth_10.version>
   </properties>
   <licenses>
     <license>
@@ -197,39 +198,6 @@
     <directory>${project.basedir}/target</directory>
     <finalName>pth_10</finalName>
     <plugins>
-      <plugin>
-        <groupId>pl.project13.maven</groupId>
-        <artifactId>git-commit-id-plugin</artifactId>
-        <version>4.9.10</version>
-        <executions>
-          <execution>
-            <id>get-the-git-infos</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>revision</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>validate-the-git-infos</id>
-            <goals>
-              <goal>validateRevision</goal>
-            </goals>
-            <phase>package</phase>
-          </execution>
-        </executions>
-        <configuration>
-          <injectAllReactorProjects>true</injectAllReactorProjects>
-          <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-          <prefix>git</prefix>
-          <verbose>true</verbose>
-          <gitDescribe>
-            <tags>true</tags>
-            <skip>false</skip>
-            <always>true</always>
-            <dirty>-dirty</dirty>
-          </gitDescribe>
-        </configuration>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
