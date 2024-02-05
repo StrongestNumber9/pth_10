@@ -64,7 +64,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <h1>ProcessingStack class</h1>
+ * <h2>ProcessingStack class</h2>
  * <p>Used to hold the Spark DataFrame being processed.<br>
  * Has two StackModes, PARALLEL (which is the default) and SEQUENTIAL.<br>
  * StackMode can be changed from PARALLEL to SEQUENTIAL, but not vice versa.<br>
