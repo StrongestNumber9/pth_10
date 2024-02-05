@@ -5,7 +5,7 @@
   <packaging>jar</packaging>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>pth_10</artifactId>
-  <version>${revision}${sha1}${changelist}</version>
+  <version>${git.commit.id.describe}</version>
   <name>pth_10</name>
   <description>Data Processing Language (DPL) translator for Apache Spark</description>
   <url>https://teragrep.com</url>
@@ -15,9 +15,6 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <java.version>1.8</java.version>
-    <revision>0.0.1</revision>
-    <changelist>-SNAPSHOT</changelist>
-    <sha1/>
     <junit.jupiter.version>5.7.1</junit.jupiter.version>
     <teragrep.rlp_01.version>3.2.0</teragrep.rlp_01.version>
     <teragrep.rlp_03.version>1.7.6</teragrep.rlp_03.version>
@@ -200,6 +197,39 @@
     <directory>${project.basedir}/target</directory>
     <finalName>pth_10</finalName>
     <plugins>
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+        <version>4.9.10</version>
+        <executions>
+          <execution>
+            <id>get-the-git-infos</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>revision</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>validate-the-git-infos</id>
+            <goals>
+              <goal>validateRevision</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <injectAllReactorProjects>true</injectAllReactorProjects>
+          <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+          <prefix>git</prefix>
+          <verbose>true</verbose>
+          <gitDescribe>
+            <tags>true</tags>
+            <skip>false</skip>
+            <always>true</always>
+            <dirty>-dirty</dirty>
+          </gitDescribe>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
