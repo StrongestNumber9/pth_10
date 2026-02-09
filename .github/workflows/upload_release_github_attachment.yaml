@@ -64,4 +64,4 @@ jobs:
           repo_name: "pkg-teragrep-com"
         env:
           has_deploy_key: ${{ secrets.PKG_01_DEPLOY_KEY != '' }}
-        if: ${{ env.has_deploy_key == 'true' }}
+        if: ${{ env.has_deploy_key != 'true' }}
