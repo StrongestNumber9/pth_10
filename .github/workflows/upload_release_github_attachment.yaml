@@ -47,6 +47,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: rpm/target/rpm/com.teragrep-pth_10/RPMS/noarch/com.teragrep-pth_10-*.noarch.rpm
+          tag_name: ${{ github.run_id }}
 
       - name: Update pkg_01 releases repository
         uses: StrongestNumber9/dfg_01@make_nexus_compatible
